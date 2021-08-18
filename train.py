@@ -1,5 +1,25 @@
 import os
 from argparse import ArgumentParser
+from model import HighwayNetwork
+
+import tensorflow as tf
+
+def accuracy_function(real, pred):
+    pass
+
+
+def train_step(image, label):
+    pass
+
+
+def val_step():
+    pass
+
+
+@tf.function
+def train():
+    pass
+    
 
 if __name__ == "__main__":
     parser = ArgumentParser()
@@ -23,6 +43,18 @@ if __name__ == "__main__":
     print('===========================')
     
     # FIXME
-    # Do Prediction
+    # Do Prediction 
 
+    batch_size = 64
+    highway_number = 5
+    epochs = 10
+    log_interval = 10
+
+
+    # TODO 1: Load MNIST
+
+
+    # TODO 3: Custom training
+
+    
 
