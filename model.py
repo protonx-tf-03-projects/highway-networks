@@ -48,9 +48,9 @@ class HighwayNetwork(tf.keras.Model):
     super(HighwayNetwork, self).__init__()
     self.mlplayers = [
       # TO DO
-      tf.keras.Input(shape=self.input_size),
+      tf.keras.Input(shape=input_size),
       tf.layers.Dense(71),
-      HighwayMLP.call,
+      HighwayMLP.call(),
       tf.layers.Dense(output_size, activations=tf.nn.softmax)
     ]
 
