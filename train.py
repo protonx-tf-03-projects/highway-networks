@@ -50,16 +50,12 @@ if __name__ == "__main__":
     # Do Prediction 
 
     batch_size = 128
-    highway_number = 5
-    epochs = 10
+    highway_number = 2
+    epochs = 3
     log_interval = 10
 
 
     # TODO 1: Load MNIST
-
-    img_width, img_height = 28, 28
-    # img_size = img_width * img_height
-    number_class = 10
     mnist = tf.keras.datasets.mnist
     (train_images, train_labels), (test_images, test_labels) = mnist.load_data()
 
@@ -67,9 +63,7 @@ if __name__ == "__main__":
     x_train = train_images.reshape(60000, 784).astype("float32") / 255
     x_test = test_images.reshape(10000, 784).astype("float32") / 255
 
-
-    input_size=x_train.shape[1]
-    highway_network = HighwayNetwork(input_size,number_class)
+    highway_network = HighwayNetwork(num_of_layers=highway_number)
 
     # Set up loss function
     loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
@@ -85,3 +79,5 @@ if __name__ == "__main__":
         batch_size=batch_size,
         validation_data=(x_test, test_labels),
     )
+
+    # highway_network.summary()
