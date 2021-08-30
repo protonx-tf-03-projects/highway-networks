@@ -13,7 +13,7 @@ Implementation for paper **Highway Network (2015)**. Give us a star if you like 
 **Model architecture:**
 
 <p align="center">
-    <img src='https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png' width=200 class="center">
+    <img src='https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png' width=800 class="center">
 </p>
 
 
@@ -37,7 +37,8 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 - Guide user how to download your data and set the data pipeline <--- **FIXME**
 - References: [NLP](https://github.com/bangoc123/transformer) and [CV](https://github.com/bangoc123/mlp-mixer)
-The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+
+- The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
   
 ## III. Training Process
 
@@ -65,8 +66,6 @@ Example:
 
 There are some important arguments for the script you should consider when running it:
 
-- `train-folder`: The folder of training data
-- `valid-folder`: The folder of validation data
 - `num_classes`: the number of units (71) in plain network or blocks (50) in highway network
 - `num_of_layers`: the number of layer in network
 - `h`: the transform function followed by an activation function
