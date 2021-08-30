@@ -1,4 +1,4 @@
-# Project Name <--- FIXME
+# Highway Network
 
 Library Logo <--- **FIXME**
 
@@ -6,44 +6,39 @@ Library Logo <--- **FIXME**
     <img src='https://storage.googleapis.com/protonx-cloud-storage/transformer/protonx-transf.png' width=200 class="center">
 </p>
 
-Description about your project. Why do you choose to build this?  <--- **FIXME**
+Implementation for paper **Highway Network (2015)**. Give us a star if you like this repo. 
 
-Slide about your project (if it's available) <--- **FIXME**
+**Highway Networks** solve the optimization problem in a very deep neural network by using a gating function to adaptively transform or bypass the signal so that the network can go deeper to 1000 layers, much more than 10 layers in plain networks.
 
-Architecture Image <--- **FIXME**
+**Model architecture:**
+
+<p align="center">
+    <img src='https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png' width=200 class="center">
+</p>
 
 
-Authors:
-- Github: members github name <--- **FIXME**
-- Email: members emails <--- **FIXME**
+**Authors (Github & Email):**
+- mrmessi2512 (team leader) – phungngbaolong@gmail.com
+- quan030994 – tranquan030894@gmail.com
+- tuvu247 – vungoctu136@gmail.com
+- hatruong29 – maiha.th.92@gmail.com
 
-Advisors:
-- Github: advisor github name <--- **FIXME**
-- Email: advisor emails <--- **FIXME**
+**Advisors:**
+- bangoc123 – protonxai@gmail.com
+
+This library belongs to our project: Protonx-tf-03-projects where we implement AI papers and publish all source codes.
 
 ## I.  Set up environment
-- Step 1: <--- **FIXME**
-
-```python
-conda env create -f environment.yml
-```
-
-- Step 2: <--- **FIXME**
-```
-
-```
-
-- Step 3: <--- **FIXME**
-
-```
-
-``` 
+1.	Make sure you have installed Miniconda. If not yet, see the setup document [here]. 
+2.	`cd` into `highway-networks` and use command line `conda env create -f environment.yml` to setup the environment
+3.	Run conda environment using the command `conda activate highway-networks`
 
 ## II.  Set up your dataset
 
 - Guide user how to download your data and set the data pipeline <--- **FIXME**
 - References: [NLP](https://github.com/bangoc123/transformer) and [CV](https://github.com/bangoc123/mlp-mixer)
-
+The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+  
 ## III. Training Process
 
 
@@ -72,7 +67,16 @@ There are some important arguments for the script you should consider when runni
 
 - `train-folder`: The folder of training data
 - `valid-folder`: The folder of validation data
-- ...
+- `num_classes`: the number of units (71) in plain network or blocks (50) in highway network
+- `num_of_layers`: the number of layer in network
+- `h`: the transform function followed by an activation function
+- `t`: the transform gate which is a sigmoid function
+- `x`: the input
+- `t_bias`: the bias in the transform gate which can be initialized with an negative value such that the network is initially biased towards carry behavior.
+- `acti_h`: the activation function following the transform function h (ReLU)
+- `acti_t`: the activation function following the transform gate t (Tanh)
+- `batch-size`: The batch size of the dataset
+
 
 ## IV. Predict Process
 
@@ -84,7 +88,7 @@ python predict.py --test-data ${link_to_test_data}
 
 **FIXME**
 
-Your implementation
+Training results using Plain Networks:
 ```
 Epoch 7/10
 782/782 [==============================] - 261s 334ms/step - loss: 0.8315 - acc: 0.8565 - val_loss: 0.8357 - val_acc: 0.7978
@@ -99,7 +103,7 @@ Epoch 10/10
 
 **FIXME**
 
-Other architecture
+Training results using Highway Networks:
 
 ```
 Epoch 6/10
@@ -110,7 +114,7 @@ Epoch 8/10
 391/391 [==============================] - 115s 293ms/step - loss: 0.1441 - acc: 0.9513 - val_loss: 0.5811 - val_acc: 0.7875
 ```
 
-Your comments about these results <--- **FIXME**
+By using the gating function, Highway can optimize the deep directly. In particular, the highway network can obtain highest accuracy with 19 layers.
 
 
 ## VI. Running Test
