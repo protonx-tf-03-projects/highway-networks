@@ -74,8 +74,8 @@ python predict.py --test-data ${link_to_test_data}
 
 ## V. Result and Comparision
 
-*10 layers:*
-Training results using Plain Networks:
+*9 layers:*
+- Training results using Plain Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 4s 2ms/step - loss: 0.0243 - accuracy: 0.9921 - val_loss: 0.0796 - val_accuracy: 0.9770
@@ -84,7 +84,7 @@ Epoch 9/10
 Epoch 10/10
 1875/1875 [==============================] - 4s 2ms/step - loss: 0.0165 - accuracy: 0.9951 - val_loss: 0.0835 - val_accuracy: 0.9772
 ```
-Training results using Highway Networks:
+- Training results using Highway Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 8s - loss: 0.0972 - accuracy: 0.9685 - val_loss: 0.1217 - val_accuracy: 0.9618
@@ -95,7 +95,7 @@ Epoch 10/10
 ```
 
 *19 layers:*
-Training results using Plain Networks:
+- Training results using Plain Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 11s 6ms/step - loss: 0.1704 - accuracy: 0.9544 - val_loss: 0.1935 - val_accuracy: 0.9465
@@ -104,7 +104,7 @@ Epoch 9/10
 Epoch 10/10
 1875/1875 [==============================] - 11s 6ms/step - loss: 0.1312 - accuracy: 0.9644 - val_loss: 0.1633 - val_accuracy: 0.9594
 ```
-Training results using Highway Networks:
+- Training results using Highway Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 14s - loss: 0.1229 - accuracy: 0.9642 - val_loss: 0.1430 - val_accuracy: 0.9599
@@ -115,7 +115,7 @@ Epoch 10/10
 ```
 
 *29 layers:*
-Training results using Plain Networks:
+- Training results using Plain Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 14s 7ms/step - loss: 0.8255 - accuracy: 0.7328 - val_loss: 0.5786 - val_accuracy: 0.8036
@@ -124,7 +124,7 @@ Epoch 9/10
 Epoch 10/10
 1875/1875 [==============================] - 14s 7ms/step - loss: 0.5249 - accuracy: 0.8508 - val_loss: 0.4721 - val_accuracy: 0.8632
 ```
-Training results using Highway Networks:
+- Training results using Highway Networks:
 ```
 Epoch 8/10
 1875/1875 [==============================] - 19s - loss: 0.1425 - accuracy: 0.9596 - val_loss: 0.1722 - val_accuracy: 0.9535
