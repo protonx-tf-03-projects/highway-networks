@@ -35,34 +35,23 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 ## II.  Set up your dataset
 
-- Guide user how to download your data and set the data pipeline <--- **FIXME**
-- References: [NLP](https://github.com/bangoc123/transformer) and [CV](https://github.com/bangoc123/mlp-mixer)
-
 - The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
   
 ## III. Training Process
 
-
-**FIXME**
-
 Training script:
-
-
 ```python
-
-python train.py --epochs ${epochs} --input-lang en --target-lang vi --input-path ${path_to_en_text_file} --target-path ${path_to_vi_text_file}
+** FIX ME **
+python train.py --epochs ${epochs} --input-path ${path_to_en_text_file} --target-path ${path_to_vi_text_file}
 
 ```
-**FIXME**
-
 Example:
 
 ```python
-
+** FIX ME **
 !python train.py --train-folder ${train_folder} --valid-folder ${valid_folder} --num-classes 2 --patch-size 5 --image-size 150 --lr 0.0001 --epochs 200 --num-heads 12 
 
-``` 
-**FIXME**
+```
 
 There are some important arguments for the script you should consider when running it:
 
@@ -85,35 +74,67 @@ python predict.py --test-data ${link_to_test_data}
 
 ## V. Result and Comparision
 
-**FIXME**
-
+*10 layers:*
 Training results using Plain Networks:
 ```
-Epoch 7/10
-782/782 [==============================] - 261s 334ms/step - loss: 0.8315 - acc: 0.8565 - val_loss: 0.8357 - val_acc: 0.7978
 Epoch 8/10
-782/782 [==============================] - 261s 334ms/step - loss: 0.3182 - acc: 0.8930 - val_loss: 0.6161 - val_acc: 0.8047
+1875/1875 [==============================] - 4s 2ms/step - loss: 0.0243 - accuracy: 0.9921 - val_loss: 0.0796 - val_accuracy: 0.9770
 Epoch 9/10
-782/782 [==============================] - 261s 333ms/step - loss: 1.1965 - acc: 0.8946 - val_loss: 3.9842 - val_acc: 0.7855
+1875/1875 [==============================] - 3s 2ms/step - loss: 0.0196 - accuracy: 0.9938 - val_loss: 0.0830 - val_accuracy: 0.9776
 Epoch 10/10
-782/782 [==============================] - 261s 333ms/step - loss: 0.4717 - acc: 0.8878 - val_loss: 0.4894 - val_acc: 0.8262
-
+1875/1875 [==============================] - 4s 2ms/step - loss: 0.0165 - accuracy: 0.9951 - val_loss: 0.0835 - val_accuracy: 0.9772
 ```
-
-**FIXME**
-
 Training results using Highway Networks:
-
 ```
-Epoch 6/10
-391/391 [==============================] - 115s 292ms/step - loss: 0.1999 - acc: 0.9277 - val_loss: 0.4719 - val_acc: 0.8130
-Epoch 7/10
-391/391 [==============================] - 114s 291ms/step - loss: 0.1526 - acc: 0.9494 - val_loss: 0.5224 - val_acc: 0.8318
 Epoch 8/10
-391/391 [==============================] - 115s 293ms/step - loss: 0.1441 - acc: 0.9513 - val_loss: 0.5811 - val_acc: 0.7875
+1875/1875 [==============================] - 8s - loss: 0.0972 - accuracy: 0.9685 - val_loss: 0.1217 - val_accuracy: 0.9618
+Epoch 9/10
+1875/1875 [==============================] - 8s - loss: 0.0895 - accuracy: 0.9721 - val_loss: 0.1110 - val_accuracy: 0.9665
+Epoch 10/10
+1875/1875 [==============================] - 8s - loss: 0.0828 - accuracy: 0.9741 - val_loss: 0.1324 - val_accuracy: 0.9618
 ```
 
-By using the gating function, Highway can optimize the deep directly. In particular, the highway network can obtain highest accuracy with 19 layers.
+*19 layers:*
+Training results using Plain Networks:
+```
+Epoch 8/10
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.1704 - accuracy: 0.9544 - val_loss: 0.1935 - val_accuracy: 0.9465
+Epoch 9/10
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.1496 - accuracy: 0.9600 - val_loss: 0.1635 - val_accuracy: 0.9552
+Epoch 10/10
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.1312 - accuracy: 0.9644 - val_loss: 0.1633 - val_accuracy: 0.9594
+```
+Training results using Highway Networks:
+```
+Epoch 8/10
+1875/1875 [==============================] - 14s - loss: 0.1229 - accuracy: 0.9642 - val_loss: 0.1430 - val_accuracy: 0.9599
+Epoch 9/10
+1875/1875 [==============================] - 14s - loss: 0.1120 - accuracy: 0.9670 - val_loss: 0.1482 - val_accuracy: 0.9556
+Epoch 10/10
+1875/1875 [==============================] - 14s - loss: 0.1038 - accuracy: 0.9693 - val_loss: 0.1376 - val_accuracy: 0.9614
+```
+
+*29 layers:*
+Training results using Plain Networks:
+```
+Epoch 8/10
+1875/1875 [==============================] - 14s 7ms/step - loss: 0.8255 - accuracy: 0.7328 - val_loss: 0.5786 - val_accuracy: 0.8036
+Epoch 9/10
+1875/1875 [==============================] - 14s 7ms/step - loss: 0.6687 - accuracy: 0.8119 - val_loss: 0.4737 - val_accuracy: 0.8819
+Epoch 10/10
+1875/1875 [==============================] - 14s 7ms/step - loss: 0.5249 - accuracy: 0.8508 - val_loss: 0.4721 - val_accuracy: 0.8632
+```
+Training results using Highway Networks:
+```
+Epoch 8/10
+1875/1875 [==============================] - 19s - loss: 0.1425 - accuracy: 0.9596 - val_loss: 0.1722 - val_accuracy: 0.9535
+Epoch 9/10
+1875/1875 [==============================] - 19s - loss: 0.1298 - accuracy: 0.9633 - val_loss: 0.1287 - val_accuracy: 0.9647
+Epoch 10/10
+1875/1875 [==============================] - 19s - loss: 0.1159 - accuracy: 0.9668 - val_loss: 0.1168 - val_accuracy: 0.9668
+```
+
+By using the gating function, Highway can optimize the deep directly. In particular, the highway network can obtain higher accuracy than plain network from 19 layers.
 
 
 ## VI. Running Test
