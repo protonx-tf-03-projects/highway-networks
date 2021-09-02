@@ -89,5 +89,3 @@ class HighwayNetwork(tf.keras.Model):
     out = self.classificationLayer(x)
 
     return out
-
-model = HighwayNetwork()
