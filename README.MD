@@ -1,126 +1,135 @@
-# Project Name <--- FIXME
+# Highway Network
 
-Library Logo <--- **FIXME**
+Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.00387)**. Give us a star if you like this repo.
+
+**Model architecture:**
 
 <p align="center">
-    <img src='https://storage.googleapis.com/protonx-cloud-storage/transformer/protonx-transf.png' width=200 class="center">
+<img src='[https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png](https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png)' width=800 class="center">
 </p>
 
-Description about your project. Why do you choose to build this?  <--- **FIXME**
+**Authors (Github & Email):**
 
-Slide about your project (if it's available) <--- **FIXME**
+- mrmessi2512 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
+- quan030994 – [tranquan030894@gmail.com](mailto:tranquan030894@gmail.com)
+- tuvu247 – [vungoctu136@gmail.com](mailto:vungoctu136@gmail.com)
+- hatruong29 – [maiha.th.92@gmail.com](mailto:maiha.th.92@gmail.com)
 
-Architecture Image <--- **FIXME**
+**Advisors:**
 
+- bangoc123 – [protonxai@gmail.com](mailto:protonxai@gmail.com)
 
-Authors:
-- Github: members github name <--- **FIXME**
-- Email: members emails <--- **FIXME**
+This library belongs to our project: Protonx-tf-03-projects where we implement AI papers and publish all source codes.
 
-Advisors:
-- Github: advisor github name <--- **FIXME**
-- Email: advisor emails <--- **FIXME**
+## I. Set up environment
 
-## I.  Set up environment
-- Step 1: <--- **FIXME**
+1. Make sure you have installed Miniconda. If not yet, see the setup document [here]([https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)).
+2. `cd` into `highway-networks` and use command line `conda env create -f environment.yml` to setup the environment
+3. Run conda environment using the command `conda activate highway-networks`
 
-```python
-conda env create -f environment.yml
-```
+## II. Set up your dataset
 
-- Step 2: <--- **FIXME**
-```
-
-```
-
-- Step 3: <--- **FIXME**
-
-```
-
-``` 
-
-## II.  Set up your dataset
-
-- Guide user how to download your data and set the data pipeline <--- **FIXME**
-- References: [NLP](https://github.com/bangoc123/transformer) and [CV](https://github.com/bangoc123/mlp-mixer)
+- The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
 
 ## III. Training Process
 
-
-**FIXME**
-
 Training script:
 
-
-```python
-
-python train.py --epochs ${epochs} --input-lang en --target-lang vi --input-path ${path_to_en_text_file} --target-path ${path_to_vi_text_file}
+```
+** FIX ME **
+python train.py --epochs ${epochs} --num-of-layers ${num_of_layers} --batch-size ${batch_size}
 
 ```
-**FIXME**
 
 Example:
 
-```python
+```
+!python train.py --t-bias -2.0 --acti-h tf.nn.relu acti-t tf.nn.tanh --num-of-layers 10 --batch-size 128 --epochs 10 --num-classes 10
 
-!python train.py --train-folder ${train_folder} --valid-folder ${valid_folder} --num-classes 2 --patch-size 5 --image-size 150 --lr 0.0001 --epochs 200 --num-heads 12 
-
-``` 
-**FIXME**
+```
 
 There are some important arguments for the script you should consider when running it:
 
-- `train-folder`: The folder of training data
-- `valid-folder`: The folder of validation data
-- ...
+- `num_classes`: the number of units (71) in plain network or blocks (50) in highway network
+- `num_of_layers`: the number of layer in network
+- `t_bias`: the bias in the transform gate which can be initialized with an negative value such that the network is initially biased towards carry behavior.
+- `acti_h`: the activation function following the transform function h (ReLU)
+- `acti_t`: the activation function following the transform gate t (Tanh)
+- `batch-size`: The batch size of the dataset
 
 ## IV. Predict Process
 
-```bash
+```
 python predict.py --test-data ${link_to_test_data}
+
 ```
 
 ## V. Result and Comparision
 
-**FIXME**
+*9 layers:*
 
-Your implementation
+- Training results using Plain Networks:
+
 ```
-Epoch 7/10
-782/782 [==============================] - 261s 334ms/step - loss: 0.8315 - acc: 0.8565 - val_loss: 0.8357 - val_acc: 0.7978
-Epoch 8/10
-782/782 [==============================] - 261s 334ms/step - loss: 0.3182 - acc: 0.8930 - val_loss: 0.6161 - val_acc: 0.8047
 Epoch 9/10
-782/782 [==============================] - 261s 333ms/step - loss: 1.1965 - acc: 0.8946 - val_loss: 3.9842 - val_acc: 0.7855
+1875/1875 [==============================] - 3s 2ms/step - loss: 0.0196 - accuracy: 0.9938 - val_loss: 0.0830 - val_accuracy: 0.9776
 Epoch 10/10
-782/782 [==============================] - 261s 333ms/step - loss: 0.4717 - acc: 0.8878 - val_loss: 0.4894 - val_acc: 0.8262
+1875/1875 [==============================] - 4s 2ms/step - loss: 0.0165 - accuracy: 0.9951 - val_loss: 0.0835 - val_accuracy: 0.9772
 
 ```
 
-**FIXME**
-
-Other architecture
+- Training results using Highway Networks:
 
 ```
-Epoch 6/10
-391/391 [==============================] - 115s 292ms/step - loss: 0.1999 - acc: 0.9277 - val_loss: 0.4719 - val_acc: 0.8130
-Epoch 7/10
-391/391 [==============================] - 114s 291ms/step - loss: 0.1526 - acc: 0.9494 - val_loss: 0.5224 - val_acc: 0.8318
-Epoch 8/10
-391/391 [==============================] - 115s 293ms/step - loss: 0.1441 - acc: 0.9513 - val_loss: 0.5811 - val_acc: 0.7875
+Epoch 9/10
+1875/1875 [==============================] - 8s - loss: 0.0895 - accuracy: 0.9721 - val_loss: 0.1110 - val_accuracy: 0.9665
+Epoch 10/10
+1875/1875 [==============================] - 8s - loss: 0.0828 - accuracy: 0.9741 - val_loss: 0.1324 - val_accuracy: 0.9618
+
 ```
 
-Your comments about these results <--- **FIXME**
+*19 layers:*
 
+- Training results using Plain Networks:
 
-## VI. Running Test
+```
+Epoch 9/10
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.1496 - accuracy: 0.9600 - val_loss: 0.1635 - val_accuracy: 0.9552
+Epoch 10/10
+1875/1875 [==============================] - 11s 6ms/step - loss: 0.1312 - accuracy: 0.9644 - val_loss: 0.1633 - val_accuracy: 0.9594
 
-When you want to modify the model, you need to run the test to make sure your change does not affect the whole system.
-
-In the `./folder-name` **(FIXME)** folder please run:
-
-```bash
-pytest
 ```
 
+- Training results using Highway Networks:
 
+```
+Epoch 9/10
+1875/1875 [==============================] - 14s - loss: 0.1120 - accuracy: 0.9670 - val_loss: 0.1482 - val_accuracy: 0.9556
+Epoch 10/10
+1875/1875 [==============================] - 14s - loss: 0.1038 - accuracy: 0.9693 - val_loss: 0.1376 - val_accuracy: 0.9614
+
+```
+
+*29 layers:*
+
+- Training results using Plain Networks:
+
+```
+Epoch 9/10
+1875/1875 [==============================] - 14s 7ms/step - loss: 0.6687 - accuracy: 0.8119 - val_loss: 0.4737 - val_accuracy: 0.8819
+Epoch 10/10
+1875/1875 [==============================] - 14s 7ms/step - loss: 0.5249 - accuracy: 0.8508 - val_loss: 0.4721 - val_accuracy: 0.8632
+
+```
+
+- Training results using Highway Networks:
+
+```
+Epoch 9/10
+1875/1875 [==============================] - 19s - loss: 0.1298 - accuracy: 0.9633 - val_loss: 0.1287 - val_accuracy: 0.9647
+Epoch 10/10
+1875/1875 [==============================] - 19s - loss: 0.1159 - accuracy: 0.9668 - val_loss: 0.1168 - val_accuracy: 0.9668
+
+```
+
+By using the gating function, Highway can optimize the deep directly. In particular, the highway network can obtain higher accuracy than plain network from 19 layers.
