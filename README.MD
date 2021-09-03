@@ -1,12 +1,23 @@
 # Highway Network
 
+<p align="center">
+    <img src='https://i.imgur.com/2cZqiA9.png' width=200 class="center" title="hover text">
+</p>
+
 Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.00387)**. Give us a star if you like this repo.
+
+Run it on colab:
+
+<a href="https://colab.research.google.com/github/weiji14/deepbedmap/"><img src="https://storage.googleapis.com/protonx-cloud-storage/colab_favicon_256px.png" width=60> </a>
 
 **Model architecture:**
 
-![Imgur Image](https://i.imgur.com/54bFTRm.png)
+<p align="center">
+    <img src='https://i.imgur.com/54bFTRm.png' width=700 class="center">
+</p>
 
-
+_Additional references, experiments and analysis of the model is available in the **[full paper](http://arxiv.org/abs/1507.06228)** extending this study._
+ 
 **Authors (Github & Email):**
 
 - pnbl-123 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
@@ -28,31 +39,31 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 ## II. Set up your dataset
 
-- The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
 
 ## III. Training Process
 
 Training script:
 
 ```python
-python train.py --epochs ${epochs} --num-of-layers ${num_of_layers} --batch-size ${batch_size}
+python train.py  --t-bias ${t_bias} --acti-h ${acti_h} --acti-t ${acti_t} --num-classes ${num_classes} --num-of-layers ${num_of_layers} --batch-size ${batch-size} --epochs ${epochs}
 
 ```
 
-Example:
+Example: You want to train a highway network for 10 classes with the bias of -2.0, 10 layers, and batch size of 128 in 10 epochs
 
 ```python
-!python train.py --t-bias -2.0 --acti-h tf.nn.relu acti-t tf.nn.tanh --num-of-layers 10 --batch-size 128 --epochs 10 --num-classes 10
+!python train.py --t-bias -2.0 --acti-h tf.nn.relu --acti-t tf.nn.sigmoid --num-of-layers 10 --batch-size 128 --num-classes 10 --epochs 10 
 
 ```
 
 There are some important arguments for the script you should consider when running it:
 
-- `num_classes`: the number of units (71) in plain network or blocks (50) in highway network
+- `num_classes`: the number of your problem classes / output categories
 - `num_of_layers`: the number of layer in network
 - `t_bias`: the bias in the transform gate which can be initialized with an negative value such that the network is initially biased towards carry behavior.
-- `acti_h`: the activation function following the transform function h (ReLU)
-- `acti_t`: the activation function following the transform gate t (Tanh)
+- `acti_h`: the activation function following the transform function h (ReLU or Tanh)
+- `acti_t`: the activation function following the transform gate t (Sigmoid)
 - `batch-size`: The batch size of the dataset
 
 ## IV. Predict Process
@@ -64,70 +75,53 @@ python predict.py --test-data ${link_to_test_data}
 
 ## V. Result and Comparision
 
-*9 layers:*
+*15 layers:*
 
 - Training results using Plain Networks:
 
-```
+```python
 Epoch 9/10
-1875/1875 [==============================] - 3s 2ms/step - loss: 0.0196 - accuracy: 0.9938 - val_loss: 0.0830 - val_accuracy: 0.9776
+** Fix me **
 Epoch 10/10
-1875/1875 [==============================] - 4s 2ms/step - loss: 0.0165 - accuracy: 0.9951 - val_loss: 0.0835 - val_accuracy: 0.9772
+** Fix me **
 
 ```
 
 - Training results using Highway Networks:
 
-```
+```python
+# t_bias=-2.0,acti_h = tf.nn.tanh, acti_t = tf.nn.sigmoid
 Epoch 9/10
-1875/1875 [==============================] - 8s - loss: 0.0895 - accuracy: 0.9721 - val_loss: 0.1110 - val_accuracy: 0.9665
+1563/1563 [==============================] - 9s 6ms/step - loss: 0.2483 - accuracy: 0.9289 - val_loss: 0.2329 - val_accuracy: 0.9341
 Epoch 10/10
-1875/1875 [==============================] - 8s - loss: 0.0828 - accuracy: 0.9741 - val_loss: 0.1324 - val_accuracy: 0.9618
+1563/1563 [==============================] - 9s 6ms/step - loss: 0.2346 - accuracy: 0.9311 - val_loss: 0.2234 - val_accuracy: 0.9350
 
 ```
 
-*19 layers:*
+*50 layers:*
 
 - Training results using Plain Networks:
 
-```
+```python
 Epoch 9/10
-1875/1875 [==============================] - 11s 6ms/step - loss: 0.1496 - accuracy: 0.9600 - val_loss: 0.1635 - val_accuracy: 0.9552
+** Fix me **
 Epoch 10/10
-1875/1875 [==============================] - 11s 6ms/step - loss: 0.1312 - accuracy: 0.9644 - val_loss: 0.1633 - val_accuracy: 0.9594
+** Fix me **
 
 ```
 
 - Training results using Highway Networks:
 
-```
+```python
+# t_bias=-3.0,acti_h = tf.nn.tanh, acti_t = tf.nn.sigmoid
 Epoch 9/10
-1875/1875 [==============================] - 14s - loss: 0.1120 - accuracy: 0.9670 - val_loss: 0.1482 - val_accuracy: 0.9556
+1563/1563 [==============================] - 22s 14ms/step - loss: 0.2756 - accuracy: 0.9191 - val_loss: 0.2584 - val_accuracy: 0.9273
 Epoch 10/10
-1875/1875 [==============================] - 14s - loss: 0.1038 - accuracy: 0.9693 - val_loss: 0.1376 - val_accuracy: 0.9614
+1563/1563 [==============================] - 22s 14ms/step - loss: 0.2595 - accuracy: 0.9229 - val_loss: 0.2475 - val_accuracy: 0.9289
 
 ```
+The transform gate biases could be low (more positive, the network starts as if the carry gates are not present at all) or high (more negative, putting more emphasis on carrying and the network can take a long time to overcome that). 
 
-*29 layers:*
+To train a very deep network, it is recommended to start with high biases (more negative) since it is easier to learn to overcome carrying than without carry gates (which is just a plain network).
 
-- Training results using Plain Networks:
-
-```
-Epoch 9/10
-1875/1875 [==============================] - 14s 7ms/step - loss: 0.6687 - accuracy: 0.8119 - val_loss: 0.4737 - val_accuracy: 0.8819
-Epoch 10/10
-1875/1875 [==============================] - 14s 7ms/step - loss: 0.5249 - accuracy: 0.8508 - val_loss: 0.4721 - val_accuracy: 0.8632
-
-```
-
-- Training results using Highway Networks:
-
-```
-Epoch 9/10
-1875/1875 [==============================] - 19s - loss: 0.1298 - accuracy: 0.9633 - val_loss: 0.1287 - val_accuracy: 0.9647
-Epoch 10/10
-1875/1875 [==============================] - 19s - loss: 0.1159 - accuracy: 0.9668 - val_loss: 0.1168 - val_accuracy: 0.9668
-
-```
-
-By using the gating function, Highway can optimize the deep directly. In particular, the highway network can obtain higher accuracy than plain network from 19 layers.
+By using the gating function, Highway can optimize the deep network directly. In particular, the highway network with more than 15 layers achieves higher accuracy than the plain network with the same number of layers.
