@@ -5,7 +5,7 @@ Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.0
 **Model architecture:**
 
 <p align="center">
-<img src='[https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png](https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png)' width=800 class="center">
+[Imgur](https://imgur.com/54bFTRm)
 </p>
 
 **Authors (Github & Email):**
