@@ -64,14 +64,7 @@ There are some important arguments for the script you should consider when runni
 - `acti_t`: the activation function following the transform gate t (Sigmoid)
 - `batch-size`: The batch size of the dataset
 
-## IV. Predict Process
-
-```
-python predict.py --test-data ${link_to_test_data}
-
-```
-
-## V. Result and Comparision
+## IV. Result and Comparision
 
 *15 layers:*
 
