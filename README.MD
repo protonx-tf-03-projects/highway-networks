@@ -22,7 +22,7 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 ## I. Set up environment
 
-1. Make sure you have installed Miniconda. If not yet, see the setup document [here]([https://docs.conda.io/en/latest/miniconda.html](https://docs.conda.io/en/latest/miniconda.html)).
+1. Make sure you have installed Miniconda. If not yet, see the setup document [here](https://docs.conda.io/en/latest/miniconda.html).
 2. `cd` into `highway-networks` and use command line `conda env create -f environment.yml` to setup the environment
 3. Run conda environment using the command `conda activate highway-networks`
 
