@@ -35,15 +35,14 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 Training script:
 
-```
-** FIX ME **
+```python
 python train.py --epochs ${epochs} --num-of-layers ${num_of_layers} --batch-size ${batch_size}
 
 ```
 
 Example:
 
-```
+```python
 !python train.py --t-bias -2.0 --acti-h tf.nn.relu acti-t tf.nn.tanh --num-of-layers 10 --batch-size 128 --epochs 10 --num-classes 10
 
 ```
