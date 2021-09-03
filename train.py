@@ -9,9 +9,9 @@ if __name__ == "__main__":
     # # Arguments users used when running command lines
     parser.add_argument("--t-bias", default=-2.0, type=float)
     parser.add_argument("--acti-h", default=tf.nn.relu)
-    parser.add_argument("--acti-t", default=tf.nn.tanh)
+    parser.add_argument("--acti-t", default=tf.nn.sigmoid)
     parser.add_argument("--num-of-layers", default=3, type=int)
-    parser.add_argument("--batch-size", default=128, type=int)
+    parser.add_argument("--batch-size", default=32, type=int)
     parser.add_argument("--epochs", default=10, type=int)
 
     home_dir = os.getcwd()
@@ -58,5 +58,6 @@ if __name__ == "__main__":
         batch_size=args.batch_size,
         validation_data=(x_test, y_test),
     )
+    highway_network.evaluate(x_val, y_val)
 
     # highway_network.summary()
