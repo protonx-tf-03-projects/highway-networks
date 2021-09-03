@@ -13,7 +13,7 @@ Run it on colab:
 **Model architecture:**
 
 <p align="center">
-    <img src='https://i.imgur.com/54bFTRm.png' width=700 class="center">
+    <img src='https://i.imgur.com/54bFTRm.png' width=800 class="center">
 </p>
 
 _Additional references, experiments and analysis of the model is available in the **[full paper](http://arxiv.org/abs/1507.06228)** extending this study._
