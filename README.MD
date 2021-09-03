@@ -10,7 +10,7 @@ Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.0
 
 **Authors (Github & Email):**
 
-- mrmessi2512 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
+- pnbl-123 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
 - quan030994 – [tranquan030894@gmail.com](mailto:tranquan030894@gmail.com)
 - tuvu247 – [vungoctu136@gmail.com](mailto:vungoctu136@gmail.com)
 - hatruong29 – [maiha.th.92@gmail.com](mailto:maiha.th.92@gmail.com)
