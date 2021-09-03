@@ -6,9 +6,7 @@
 
 Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.00387)**. Give us a star if you like this repo.
 
-Run it on colab:
-
-<a href="https://colab.research.google.com/github/weiji14/deepbedmap/"><img src="https://storage.googleapis.com/protonx-cloud-storage/colab_favicon_256px.png" width=60> </a>
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PRRdM24OTv24_h0jQXGbTJbiOVGqZe4V)
 
 **Model architecture:**
 
@@ -39,7 +37,7 @@ This library belongs to our project: Protonx-tf-03-projects where we implement A
 
 ## II. Set up your dataset
 
-The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of 60000 examples, and a test set of 10000 examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
+The dataset used for Highway Networks is the MNIST database of handwritten digits, available from this page. It has a training set of `60000` examples, and a test set of `10000` examples. It is a subset of a larger set available from NIST. The digits have been size-normalized and centered in a fixed-size image.
 
 ## III. Training Process
 
@@ -81,9 +79,9 @@ python predict.py --test-data ${link_to_test_data}
 
 ```python
 Epoch 9/10
-** Fix me **
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1121 - accuracy: 0.9702 - val_loss: 0.1607 - val_accuracy: 0.9586
 Epoch 10/10
-** Fix me **
+1875/1875 [==============================] - 5s 3ms/step - loss: 0.1020 - accuracy: 0.9728 - val_loss: 0.1402 - val_accuracy: 0.9633
 
 ```
 
@@ -104,9 +102,9 @@ Epoch 10/10
 
 ```python
 Epoch 9/10
-** Fix me **
+1875/1875 [==============================] - 10s 6ms/step - loss: 2.3013 - accuracy: 0.1124 - val_loss: 2.3010 - val_accuracy: 0.1135
 Epoch 10/10
-** Fix me **
+1875/1875 [==============================] - 10s 5ms/step - loss: 2.3013 - accuracy: 0.1124 - val_loss: 2.3012 - val_accuracy: 0.1135
 
 ```
 
@@ -120,8 +118,6 @@ Epoch 10/10
 1563/1563 [==============================] - 22s 14ms/step - loss: 0.2595 - accuracy: 0.9229 - val_loss: 0.2475 - val_accuracy: 0.9289
 
 ```
-The transform gate biases could be low (more positive, the network starts as if the carry gates are not present at all) or high (more negative, putting more emphasis on carrying and the network can take a long time to overcome that). 
+To train a very deep neural network, you should start with high transform gate biases _**(more negative)**_ since it is easier to learn to overcome carrying than without carry gates (which is just a plain network).
 
-To train a very deep network, it is recommended to start with high biases (more negative) since it is easier to learn to overcome carrying than without carry gates (which is just a plain network).
-
-By using the gating function, Highway can optimize the deep network directly. In particular, the highway network with more than 15 layers achieves higher accuracy than the plain network with the same number of layers.
+By using the gating function, Highway networks can optimize the depth directly. Specifically, the highway networks achieve comparable performance with the plain networks when the networks include only 15 layers **but** _**significantly outperform**_ (much higher accuracy) than the plain network when the networks go deeper to more than 50 layers.
