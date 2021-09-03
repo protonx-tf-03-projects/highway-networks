@@ -5,7 +5,7 @@ Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.0
 **Model architecture:**
 
 <p align="center">
-![Imgur Image](https://i.imgur.com/54bFTRm.png)
+![Imgur Image](https://imgur.com/54bFTRm.png)
 </p>
 
 **Authors (Github & Email):**
