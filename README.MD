@@ -4,13 +4,12 @@ Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.0
 
 **Model architecture:**
 
-<p align="center">
-<img src='[https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png](https://github.com/protonx-tf-03-projects/highway-networks/blob/readme/Highway-Networks.png)' width=800 class="center">
-</p>
+![Imgur Image](https://i.imgur.com/54bFTRm.png)
+
 
 **Authors (Github & Email):**
 
-- mrmessi2512 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
+- pnbl-123 (team leader) – [phungngbaolong@gmail.com](mailto:phungngbaolong@gmail.com)
 - quan030994 – [tranquan030894@gmail.com](mailto:tranquan030894@gmail.com)
 - tuvu247 – [vungoctu136@gmail.com](mailto:vungoctu136@gmail.com)
 - hatruong29 – [maiha.th.92@gmail.com](mailto:maiha.th.92@gmail.com)
