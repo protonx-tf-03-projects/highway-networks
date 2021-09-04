@@ -81,7 +81,7 @@ Epoch 10/10
 - Training results using Highway Networks:
 
 ```python
-# t_bias=-2.0,acti_h = tf.nn.tanh, acti_t = tf.nn.sigmoid
+# t_bias=-2.0,acti_h = tf.nn.relu, acti_t = tf.nn.sigmoid
 Epoch 9/10
 1563/1563 [==============================] - 9s 6ms/step - loss: 0.2483 - accuracy: 0.9289 - val_loss: 0.2329 - val_accuracy: 0.9341
 Epoch 10/10
@@ -104,13 +104,28 @@ Epoch 10/10
 - Training results using Highway Networks:
 
 ```python
-# t_bias=-3.0,acti_h = tf.nn.tanh, acti_t = tf.nn.sigmoid
+# t_bias=-3.0,acti_h = tf.nn.relu, acti_t = tf.nn.sigmoid
 Epoch 9/10
 1563/1563 [==============================] - 22s 14ms/step - loss: 0.2756 - accuracy: 0.9191 - val_loss: 0.2584 - val_accuracy: 0.9273
 Epoch 10/10
 1563/1563 [==============================] - 22s 14ms/step - loss: 0.2595 - accuracy: 0.9229 - val_loss: 0.2475 - val_accuracy: 0.9289
 
 ```
+*1000 layers:*
+
+- Training results using Highway Networks:
+
+```python
+# t_bias=-20.0,acti_h = tf.nn.relu, acti_t = tf.nn.sigmoid
+Epoch 9/10
+1563/1563 [==============================] - 279s 179ms/step - loss: 0.2877 - acc: 0.9191 - val_loss: 0.2822 - val_acc: 0.9207
+Epoch 10/10
+1563/1563 [==============================] - 273s 175ms/step - loss: 0.2849 - acc: 0.9205 - val_loss: 0.2801 - val_acc: 0.9218
+
+```
+
 To train a very deep neural network, you should start with high transform gate biases _**(more negative)**_ since it is easier to learn to overcome carrying than without carry gates (which is just a plain network).
 
-By using the gating function, Highway networks can optimize the depth directly. Specifically, the highway networks achieve comparable performance with the plain networks when the networks include only 15 layers **but** _**significantly outperform**_ (much higher accuracy) than the plain network when the networks go deeper to more than 50 layers.
+By using the gating function, highway networks can optimize the depth directly. Specifically, the highway networks achieve comparable performance with the plain networks when the networks include only 15 layers **but** _**significantly outperform**_ (much higher accuracy) the plain networks when the networks go deeper to more than 50 layers.
+
+The last result shows that highway networks can train up to 1000 layers with similar high accuracy as 50 layers. 
