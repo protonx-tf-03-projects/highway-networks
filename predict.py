@@ -1,7 +1,5 @@
 import os
 from argparse import ArgumentParser
-
-from tensorflow.python.keras.backend import dtype
 from model import HighwayNetwork
 import numpy as np
 import tensorflow as tf
@@ -23,7 +21,6 @@ if __name__ == "__main__":
         img = tf.keras.preprocessing.image.load_img(test_file_path, grayscale=True, target_size=(28, 28))
         # convert to array
         img = tf.keras.preprocessing.image.img_to_array(img)
-        # reshape into a single sample with 3 channels
         img = img.reshape(1,784).astype("float32") / 255
         # center pixel data
         return img
