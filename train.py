@@ -5,7 +5,7 @@ import tensorflow as tf
 
 if __name__ == "__main__":
     parser = ArgumentParser()
-    
+    home_dir = os.getcwd()
     # # Arguments users used when running command lines
     parser.add_argument("--t-bias", default=-2.0, type=float)
     parser.add_argument("--acti-h", default=tf.nn.relu)
@@ -14,9 +14,8 @@ if __name__ == "__main__":
     parser.add_argument("--batch-size", default=32, type=int)
     parser.add_argument("--epochs", default=10, type=int)
     parser.add_argument("--learning-rate", default=0.01, type=float)
-    parser.add_argument("--model-folder", default='{}/model/highway_network/'.format(home_dir), type=str, required=True)
+    parser.add_argument("--model-folder", default='{}/model/highway_network/'.format(home_dir), type=str)
 
-    home_dir = os.getcwd()
     args = parser.parse_args()
 
     # # Project Description
