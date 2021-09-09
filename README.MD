@@ -4,7 +4,7 @@
     <img src='https://i.imgur.com/2cZqiA9.png' width=200 class="center" title="hover text">
 </p>
 
-Implementation for paper **[Highway Network (2015)](https://arxiv.org/abs/1505.00387)**. Give us a star if you like this repo.
+Implementation for paper **[Highway Network](https://arxiv.org/abs/1505.00387)**. Give us a star :star2: if you like this repo. 
 
 [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1PRRdM24OTv24_h0jQXGbTJbiOVGqZe4V)
 
@@ -63,7 +63,13 @@ There are some important arguments for the script you should consider when runni
 - `acti_t`: the activation function following the transform gate t (Sigmoid)
 - `batch-size`: The batch size of the dataset
 
-## IV. Result and Comparision
+## IV. Predict Process
+If you want to test your single image, please run this code:
+```bash
+python predict.py --model-folder ${model_file_path} --image-index ${index_of_image}
+```
+
+## V. Result and Comparision
 
 *15 layers:*
 
