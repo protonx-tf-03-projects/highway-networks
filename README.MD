@@ -1,8 +1,10 @@
 # Highway Network
 
+
 <p align="center">
-    <img src='https://i.imgur.com/2cZqiA9.png' width=200 class="center" title="hover text">
+    <img src='https://i.imgur.com/eB2tQGo.png' width=300 class="center" title="hover text">
 </p>
+
 
 Implementation for paper **[Highway Network](https://arxiv.org/abs/1505.00387)**. Give us a star :star2: if you like this repo. 
 
