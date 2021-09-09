@@ -15,5 +15,10 @@ def build_dataset():
     y_val = y_train[-10000:]
     x_train = x_train[:-10000]
     y_train = y_train[:-10000]
+    
+    num_digits = 10
+    y_train = tf.keras.utils.to_categorical(y_train, num_digits)
+    y_test = tf.keras.utils.to_categorical(y_test, num_digits)
+    y_val = tf.keras.utils.to_categorical(y_val, num_digits)
 
     return x_train, y_train, x_test, y_test, x_val, y_val
