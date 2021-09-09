@@ -1,6 +1,5 @@
 import os
 from argparse import ArgumentParser
-from model import HighwayNetwork
 import numpy as np
 import tensorflow as tf
 from data import build_dataset
