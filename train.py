@@ -2,6 +2,7 @@ import os
 from argparse import ArgumentParser
 from model import HighwayNetwork
 import tensorflow as tf
+from data import build_dataset
 
 if __name__ == "__main__":
     parser = ArgumentParser()
@@ -30,19 +31,9 @@ if __name__ == "__main__":
         print('{}.{}: {}'.format(i, arg, vars(args)[arg]))
     print('===========================')
 
-    # TODO 1: Load MNIST
-    mnist = tf.keras.datasets.mnist
-    (x_train, y_train), (x_test, y_test) = mnist.load_data()
-
-    x_train = x_train.reshape(60000, 784).astype("float32") / 255
-    x_test = x_test.reshape(10000, 784).astype("float32") / 255
-
-    # Reserve 10,000 samples for validation
-    x_val = x_train[-10000:]
-    y_val = y_train[-10000:]
-    x_train = x_train[:-10000]
-    y_train = y_train[:-10000]
-
+    mnist = build_dataset()
+    x_train, y_train, x_test, y_test, x_val, y_val= mnist
+    
     highway_network = HighwayNetwork(t_bias=args.t_bias, acti_h=args.acti_h, acti_t=args.acti_t, num_of_layers=args.num_of_layers)
 
     # Set up loss function
