@@ -8,8 +8,7 @@ from data import build_dataset
 if __name__ == "__main__":
     home_dir = os.getcwd()
     parser = ArgumentParser()
-    parser.add_argument("--model-folder", default='{}/model/highway/'.format(home_dir), type=str)
-    parser.add_argument("--image-size", default=28, type=int)
+    parser.add_argument("--model-folder", default='{}/model/highway/'.format(home_dir), type=str, required=True)
     parser.add_argument("--image-index", default=0, type=int)
 
     args = parser.parse_args()
