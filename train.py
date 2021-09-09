@@ -23,7 +23,6 @@ if __name__ == "__main__":
 
     print('---------------------Welcome to ${name}-------------------')
     print('Github: mrmessi2512, hatruong29, quan030994')
-    print('Email: phungngbaolong@gmail.com')
     print('---------------------------------------------------------------------')
     print('Training Highway Network model with hyper-params:') 
     print('===========================')
