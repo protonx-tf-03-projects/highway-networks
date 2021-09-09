@@ -16,7 +16,10 @@ if __name__ == "__main__":
     highway = tf.keras.models.load_model(args.model_folder)
     mnist = build_dataset()
     _, _, _, _, x_val, y_val= mnist
-    predictions = highway.predict(x_val)  
+    predictions = highway.predict(x_val) 
+    
+    num_digits = 10
+    y_val = tf.keras.utils.to_categorical(y_val, num_digits)
 
     print('---------------------Prediction Result: -------------------')
     print('Output Softmax: {}'.format(np.argmax(predictions[args.image_index]), axis=1))
