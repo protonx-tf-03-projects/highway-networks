@@ -63,7 +63,7 @@ There are some important arguments for the script you should consider when runni
 - `t_bias`: the bias in the transform gate which can be initialized with an negative value such that the network is initially biased towards carry behavior.
 - `acti_h`: the activation function following the transform function h (ReLU or Tanh)
 - `acti_t`: the activation function following the transform gate t (Sigmoid)
-- `batch-size`: The batch size of the dataset
+- `batch_size`: The batch size of the dataset
 
 ## IV. Predict Process
 If you want to test your single image, please run this code:
