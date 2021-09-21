@@ -1,4 +1,4 @@
-name: highway-net
+name: highway-networks
 channels:
   - defaults
 dependencies:
