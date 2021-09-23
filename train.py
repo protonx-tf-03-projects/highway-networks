@@ -22,7 +22,7 @@ if __name__ == "__main__":
     # # Project Description
 
     print('---------------------Welcome to ${name}-------------------')
-    print('Github: mrmessi2512, hatruong29, quan030994')
+    print('Github: pnbl-123, hatruong29, quan030994')
     print('---------------------------------------------------------------------')
     print('Training Highway Network model with hyper-params:') 
     print('===========================')
